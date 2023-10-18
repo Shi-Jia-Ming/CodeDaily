@@ -1,8 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "daily.h"
 
 int main(int argc, char const *argv[]) {
-    printf("%d", sumOfMultiples(atoi(argv[1])));
+    int nums[5] = {1, 10, 3, 3, 3};
+    int k = 3;
+    printf("%ld", maxKelements(nums, 5, k));
     return 0;
 }
