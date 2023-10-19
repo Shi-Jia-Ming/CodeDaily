@@ -1,5 +1,11 @@
 # build file
 build
+cmake-build-debug
 
 # config file
 .vscode
+.idea
+.fleet
+
+# cache file
+.cache

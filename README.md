@@ -1,3 +1,3 @@
-# LeetCodeDaily
+# CodeDaily
 
-LeetCode平台刷题记录
+nowcoder平台刷题记录
