@@ -26,11 +26,15 @@ int isEmpty(Stack* stack) {
 
 Stack* initStack() {
     Stack* stack = (Stack *)malloc(sizeof(Stack));
-    stack->bottom = (StackNode *)(sizeof(StackNode));
-//    stack->bottom->node = NULL;
-//    stack->bottom->next = NULL;
+    stack->bottom = (StackNode *)malloc(sizeof(StackNode));
+
     stack->top = stack->bottom;
     return stack;
+}
+
+void Free(Stack * stack) {
+    free(stack->bottom);
+    free(stack);
 }
 
 void push(Stack* stack, TreeNode* node) {
@@ -63,6 +67,7 @@ int* preorderTraversal(TreeNode* root, int* returnSize) {
     while (1) {
         if (move == NULL && isEmpty(stack)) {
             *returnSize = count;
+            Free(stack);
             return val;
         } else if (move != NULL) {
             val[count++] = move->val;

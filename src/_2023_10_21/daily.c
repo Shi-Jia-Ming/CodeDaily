@@ -17,6 +17,10 @@ int isEmpty(Stack * stack) {
     return stack->bottom == stack->top;
 }
 
+void Free(Stack * stack) {
+    free(stack);
+}
+
 Stack * initStack() {
     Stack * stack = (Stack *)malloc(sizeof(Stack));
     stack->bottom = -1;
@@ -41,10 +45,12 @@ int* inorderTraversal(TreeNode* root, int* returnSize) {
     *returnSize = 0;
 
     Stack * stack = initStack();
+
     while (1) {
-        if (root == NULL && isEmpty(stack))
+        if (root == NULL && isEmpty(stack)) {
+            free(stack);
             return val;
-        else if (root != NULL) {
+        } else if (root != NULL) {
             push(stack, root);
             root = root->left;
         } else if (root == NULL) {
