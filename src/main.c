@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include "daily.h"
 #include <stdlib.h>
+
+#include "daily.h"
 
 int main(int argc, char const *argv[]) {
     TreeNode* root = (TreeNode *)malloc(sizeof(TreeNode));
@@ -20,7 +21,7 @@ int main(int argc, char const *argv[]) {
 
     int size = 0;
 
-    int* val = preorderTraversal(root, &size);
+    int* val = inorderTraversal(root, &size);
     for (int i = 0; i < size; i++) {
         printf("%d ", val[i]);
     }
