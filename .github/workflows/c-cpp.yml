@@ -13,8 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: switch to dir
-      run: cd build
     - name: build
       run: cmake ..
     - name: complie
