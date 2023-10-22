@@ -21,7 +21,7 @@ int main(int argc, char const *argv[]) {
 
     int size = 0;
 
-    int* val = inorderTraversal(root, &size);
+    int* val = postorderTraversal(root, &size);
     for (int i = 0; i < size; i++) {
         printf("%d ", val[i]);
     }
