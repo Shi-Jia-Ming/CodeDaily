@@ -6,7 +6,8 @@
 
 数据范围：树上的节点满足$0 \leqslant n \leqslant 1000$，树上每一个节点的值都满足$-1000 \leqslant val \leqslant 1000$。
 
-示例：
+#### 示例
+
 ![graph](./assets/graph.png)
 
 ```txt
