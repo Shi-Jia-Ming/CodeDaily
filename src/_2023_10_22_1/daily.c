@@ -9,16 +9,16 @@
 struct Stack {
     TreeNode * data[1000];
     int bottom;
-  int top;
-  };
+    int top;
+};
 
 typedef struct Stack Stack;
 
 Stack * initStack() {
-  Stack * stack = (Stack *) malloc(sizeof(Stack));
+    Stack * stack = (Stack *) malloc(sizeof(Stack));
     stack->bottom = -1;
     stack->top = -1;
-  return stack;
+    return stack;
 }
 
 void freeStack(Stack * stack) {
