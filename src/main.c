@@ -21,10 +21,6 @@ int main(int argc, char const *argv[]) {
 
     int * size =(int *) malloc(sizeof(int) * 1000);
     int * columnSize[1500];
-    // 数组内指针的初始化
-    for (int i = 0; i < 1500; ++i) {
-        columnSize[i] = (int *) malloc(sizeof(int));
-    }
 
     int** val = levelOrder(root, size, columnSize);
     for (int i = 0; i < *size; ++i) {

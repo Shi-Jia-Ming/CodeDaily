@@ -1,10 +1,9 @@
 #include "daily.h"
 #include <stdlib.h>
 
-/** 
- * 有内存泄露的问题，对二重指针的运用还不太熟悉
+/**
 struct Queue {
-    TreeNode * data[150];
+    TreeNode* data[1500];
     int head;
     int tail;
     int end;
@@ -12,50 +11,54 @@ struct Queue {
 
 typedef struct Queue Queue;
 
-Queue * initQueue() {
-    Queue * queue = (Queue *) malloc(sizeof(Queue));
+Queue* initQueue() {
+    Queue* queue = (Queue*) malloc(sizeof(Queue));
     queue->head = -1;
     queue->tail = -1;
     queue->end = 0;
     return queue;
 }
 
-int isEmpty(Queue * queue) {
+int isEmpty(Queue* queue) {
     return queue->head == queue->tail;
 }
 
 
 // 判断队列头部的节点是否为树的一层的最后一个节点
-int isEndNode(Queue * queue) {
+int isEndNode(Queue* queue) {
     return queue->head + 1 == queue->end;
 }
 
-void freeQueue(Queue * queue) {
+void freeQueue(Queue* queue) {
     free(queue);
 }
 
-void push(Queue * queue, TreeNode * node, int isEnd) {
-    queue->data[(queue->tail)++] = node;
+void push(Queue* queue, TreeNode* node, int isEnd) {
+    queue->tail++;
+    queue->data[queue->tail] = node;
     // 标记一层的尾节点
     if (isEnd)
         queue->end = queue->tail;
 }
 
-TreeNode * pop(Queue * queue) {
+TreeNode* pop(Queue* queue) {
     if (isEmpty(queue))
         return NULL;
-    return queue->data[queue->head++];
+    queue->head++;
+    return queue->data[queue->head];
 }
+
 
 
 int** levelOrder(TreeNode* root, int* returnSize, int** returnColumnsSizes) {
     *returnSize = 0;
-    *returnColumnsSizes[*returnSize] = 0;
-    int** value = (int **) malloc(sizeof(int *) * 1500);
-    value[*returnSize] = (int *) malloc(sizeof(int) * 1500);
+    *returnColumnsSizes = (int *) malloc(sizeof(int) * 1500);
+    (*returnColumnsSizes)[*returnSize] = 0;
+    int** value = (int**) malloc(sizeof(int*) * 1500);
+    value[*returnSize] = (int*) malloc(sizeof(int) * 1500);
 
-    TreeNode * move = root;
-    Queue * queue = initQueue();
+    TreeNode* move = root;
+    Queue* queue = initQueue();
 
     push(queue, move, 1);
 
@@ -64,22 +67,25 @@ int** levelOrder(TreeNode* root, int* returnSize, int** returnColumnsSizes) {
         move = pop(queue);
 
         if (move != NULL) {
-            value[*returnSize][*returnColumnsSizes[*returnSize]] = move->val;
-            (*returnColumnsSizes[*returnSize])++;
+            value[*returnSize][(*returnColumnsSizes)[*returnSize]] = move->val;
+            (*returnColumnsSizes)[*returnSize]++;
             // move是一层的尾节点
             if (isEnd) {
                 (*returnSize)++;
-                (*returnColumnsSizes[*returnSize]) = 0;
-                value[*returnSize] = (int *) malloc(sizeof(int) * 1500);
+                (*returnColumnsSizes)[*returnSize] = 0;
+                value[*returnSize] = (int*) malloc(sizeof(int) * 1500);
             }
+            // TODO 判断是否为末尾节点的逻辑错误
             push(queue, move->left, isEnd && move->right == NULL);
             push(queue, move->right, isEnd && move->right != NULL);
         }
+         free(move);
     }
-    freeQueue(queue);
+    free(queue);
 
     return value;
-}*/
+}
+*/
 
 /** 
  * 官方答案
