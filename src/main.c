@@ -22,12 +22,15 @@ int main(int argc, char const *argv[]) {
     int * size =(int *) malloc(sizeof(int) * 1000);
     int * columnSize[1500];
 
-    int** val = levelOrder(root, size, columnSize);
+    int** val = Print(root, size, columnSize);
     for (int i = 0; i < *size; ++i) {
         for (int j = 0; j < (*columnSize)[i]; ++j) {
             printf("%d\n", val[i][j]);
         }
     }
     printf("\n");
+
+    free(size);
+    free(val);
     return 0;
 }
