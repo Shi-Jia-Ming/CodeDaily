@@ -1,11 +1,15 @@
 # build file
 build
 cmake-build-debug
+cmake-build-release
+cmake-build-minSizeRel
+cmake-build-relWithDebInfo
 
 # config file
 .vscode
 .idea
 .fleet
+.arts
 
 # cache file
 .cache
