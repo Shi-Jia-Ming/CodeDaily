@@ -4,13 +4,7 @@
 
 int main(int argc, char const *argv[]) {
 
-    initQueue();
-    push(1);
-    push(2);
-    push(3);
-    printf("%d\t", pop());
-    printf("%d\t", pop());
-    printf("%d\t", pop());
-    freeQueue();
+    int nums[8] = {-1, 0, 3, 4, 6, 10, 13, 14};
+    printf("%d", search(nums, 8, 2));
     return 0;
 }
