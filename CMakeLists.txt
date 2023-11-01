@@ -11,4 +11,5 @@ set(SRC_DIR "src")
 
 # add exec
 add_executable(Main ${SRC_DIR}/main.c ${SRC_DIR}/_2023_10_31/daily.c)
-#add_executable(Main ${SRC_DIR}/main.c)
+
+target_link_libraries(Main PRIVATE m)
