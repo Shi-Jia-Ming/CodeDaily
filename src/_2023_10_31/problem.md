@@ -17,3 +17,9 @@
 返回值：6
 说明：13 出现在 nums 中并且下标为 6
 ```
+
+---
+#### 链接列表
+
+- [README.md](../../README.md)
+- [Source Code](./daily.c)
