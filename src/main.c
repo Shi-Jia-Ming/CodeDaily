@@ -2,8 +2,9 @@
 #include <stdio.h>
 
 
+
 int main(int argc, char const *argv[]) {
 
 
-    printf("%d", countPoints(argv[1]));
+    printf("%d", isPalindrome(argv[1]));
 }
