@@ -69,7 +69,7 @@ int Depth(TreeNode * root) {
     if (root == NULL)
         return 0;
   else {
-  m = Depth(root->left);
+    m = Depth(root->left);
     n = Depth(root->right);
     return m > n ? m + 1 : n + 1;
     }
