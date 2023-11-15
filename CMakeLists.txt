@@ -10,4 +10,4 @@ include_directories("src/_2023_11_15")
 set(SRC_DIR "src")
 
 # add exec
-add_executable(Main ${SRC_DIR}/main.c ${SRC_DIR}/_2023_11_14_2/daily.c)
+add_executable(Main ${SRC_DIR}/main.c ${SRC_DIR}/_2023_11_15/daily.c)
