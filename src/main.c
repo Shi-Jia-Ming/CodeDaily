@@ -5,16 +5,15 @@
 
 int main(int argc, char const *argv[]) {
 
-    TreeNode * root = buildTree("-+ab/de");
-    char * ans = Pre(root);
+    TreeNode * root = buildTree("ab#cd####");
+
+    root = buildThrt(root);
+
+    char * ans = getThrt(root);
     printf("%s\n", ans);
     free(ans);
-    ans = In(root);
-    printf("%s\n", ans);
-    free(ans);
-    ans = Post(root);
-    printf("%s\n", ans);
-    free(ans);
-    recursionFree(root);
+    printf("%d", getNode(root));
+    freeTree(root);
+
     return 0;
 }
