@@ -5,15 +5,21 @@
 
 int main(int argc, char const *argv[]) {
 
-    TreeNode * root = buildTree("ab#cd####");
+    TreeNode * root = buildTree();
 
-    root = buildThrt(root);
+    char * str = preSearch(root);
+    printf("%s\n", str);
+    free(str);
+    str = postSearch(root);
+    printf("%s\n", str);
+    free(str);
+    str = floorSearch(root);
+    printf("%s\n", str);
+    free(str);
+    printf("%d\n%d\n", depth(root), leaf(root));
 
-    char * ans = getThrt(root);
-    printf("%s\n", ans);
-    free(ans);
-    printf("%d", getNode(root));
-    freeTree(root);
+    printBranch(root);
 
+    curveFree(root);
     return 0;
 }

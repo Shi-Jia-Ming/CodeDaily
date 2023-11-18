@@ -3,11 +3,14 @@ project(Main C)
 
 set(CMAKE_C_STANDARD 11)
 
-# header files
-include_directories("src/_2023_11_15")
-
 # source code directory
 set(SRC_DIR "src")
 
+# daily source code directory
+set(DAILY_SRC_DIR "src/_2023_11_18")
+
+# header files
+include_directories(${DAILY_SRC_DIR})
+
 # add exec
-add_executable(Main ${SRC_DIR}/main.c ${SRC_DIR}/_2023_11_15/daily.c)
+add_executable(Main ${SRC_DIR}/main.c ${DAILY_SRC_DIR}/daily.c)
