@@ -1,25 +1,16 @@
 #include "daily.h"
-#include <stdlib.h>
 #include <stdio.h>
 
 
 int main(int argc, char const *argv[]) {
 
-    TreeNode * root = buildTree();
+    int N, C;
+    scanf("%d %d", &N, &C); // NOLINT(*-err34-c)
 
-    char * str = preSearch(root);
-    printf("%s\n", str);
-    free(str);
-    str = postSearch(root);
-    printf("%s\n", str);
-    free(str);
-    str = floorSearch(root);
-    printf("%s\n", str);
-    free(str);
-    printf("%d\n%d\n", depth(root), leaf(root));
 
-    printBranch(root);
-
-    curveFree(root);
+    char *** data = scanData(N);
+    data = switchSort(data, N, C);
+    printData(data, N);
+    freeData(data, N);
     return 0;
 }
