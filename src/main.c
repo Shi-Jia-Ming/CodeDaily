@@ -1,16 +1,28 @@
 #include "daily.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 
 int main(int argc, char const *argv[]) {
 
-    int N, C;
-    scanf("%d %d", &N, &C); // NOLINT(*-err34-c)
+    int fileNum;
+    scanf("%d", &fileNum);
 
+    ArrayNode * head = getFile(fileNum);
 
-    char *** data = scanData(N);
-    data = switchSort(data, N, C);
-    printData(data, N);
-    freeData(data, N);
+    int searchNum;
+
+    scanf("%d", &searchNum);
+
+    double * res = getRate(head, searchNum);
+    int i;
+    for (i = 0; i < searchNum - 1; ++i) {
+        printf("%.1f%c\n", res[i], '%');
+    }
+    printf("%.1f%c", res[i], '%');
+    free(res);
+
+    freeAll(head);
+
     return 0;
 }

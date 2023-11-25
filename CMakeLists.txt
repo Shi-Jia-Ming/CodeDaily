@@ -7,7 +7,7 @@ set(CMAKE_C_STANDARD 11)
 set(SRC_DIR "src")
 
 # daily source code directory
-set(DAILY_SRC_DIR "src/_2023_11_18_1")
+set(DAILY_SRC_DIR "src/_2023_11_25")
 
 # header files
 include_directories(${DAILY_SRC_DIR})
